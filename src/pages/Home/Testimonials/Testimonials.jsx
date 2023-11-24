@@ -12,7 +12,7 @@ const Testimonials = () => {
     const [review] = useReview();
 
     return (
-        <div className='my-10'>
+        <div className='my-8'>
             <div>
                 <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center py-10">
                     Glowing Reviews from Our Members

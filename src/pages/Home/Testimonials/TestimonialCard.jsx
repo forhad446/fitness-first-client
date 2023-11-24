@@ -2,7 +2,6 @@ import icon from './../../../assets/logo.png'
 
 const TestimonialCard = ({ item }) => {
     const { img, comment, userName } = item;
-    console.log(item);
     return (
         <>
             <div className="flex items-center justify-center px-5 py-5 my-10">

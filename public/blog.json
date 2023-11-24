@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "title": "The Power of HIIT Workouts",
+        "category": "Fitness",
+        "datetime": "2023-11-24T08:00:00Z",
+        "content": "High-Intensity Interval Training (HIIT) has been a game-changer in the fitness world...",
+        "img": "https://i.ibb.co/4Y1w6sP/Rectangle-2-2.png",
+        "userName": "FitLover123"
+    },
+    {
+        "id": 2,
+        "title": "Eating Clean: A Guide to Healthy Nutrition",
+        "category": "Nutrition",
+        "datetime": "2023-11-18T10:30:00Z",
+        "content": "Maintaining a balanced diet is essential for overall well-being...",
+        "img": "https://i.ibb.co/CwhkFRc/Rectangle-2-3.png",
+        "userName": "NutriGuru87"
+    },
+    {
+        "id": 3,
+        "title": "Mindfulness in Fitness: The Connection Between Body and Mind",
+        "category": "Mindfulness",
+        "datetime": "2023-11-12T09:15:00Z",
+        "content": "Fitness isn't just about physical exercise; it's also about mental well-being...",
+        "img": "https://i.ibb.co/ysy7F8G/Rectangle-2-4.png",
+        "userName": "ZenActive23"
+    },
+    {
+        "id": 4,
+        "title": "Staying Motivated: Tips for Consistent Workouts",
+        "category": "Fitness",
+        "datetime": "2023-11-06T14:45:00Z",
+        "content": "Maintaining motivation for regular workouts can be challenging...",
+        "img": "https://i.ibb.co/HpFmHbh/Rectangle-3.png",
+        "userName": "GymEnthusiast99"
+    },
+    {
+        "id": 5,
+        "title": "The Importance of Rest Days in Fitness",
+        "category": "Fitness",
+        "datetime": "2023-10-30T11:00:00Z",
+        "content": "Rest days are crucial for muscle recovery and overall fitness progress...",
+        "img": "https://i.ibb.co/Pc7ZN9R/Rectangle-2.png",
+        "userName": "RecoveryChamp72"
+    },
+    {
+        "id": 6,
+        "title": "Healthy Habits for a Productive Morning Routine",
+        "category": "Lifestyle",
+        "datetime": "2023-10-25T07:30:00Z",
+        "content": "Starting your day with healthy habits sets the tone for a productive and energized day ahead...",
+        "img": "https://i.ibb.co/cgBk6Cp/Rectangle-2-5.png",
+        "userName": "MorningBoost21"
+    },
+    {
+        "id": 7,
+        "title": "The Science Behind Weightlifting and Muscle Growth",
+        "category": "Fitness",
+        "datetime": "2023-10-20T13:20:00Z",
+        "content": "Weightlifting isn't just about building muscles; it involves a complex physiological process...",
+        "img": "https://i.ibb.co/cgBk6Cp/Rectangle-2-5.png",
+        "userName": "MuscleScienceGeek"
+    }
+]
