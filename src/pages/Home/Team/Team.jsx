@@ -4,7 +4,7 @@ const Team = () => {
     return (
         <div>
             <div class="mb-10">
-                <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center py-10">
+                <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center py-10 ">
                     Get to Know Our Experts
                 </h1>
                 <div class="flex flex-col items-center md:flex-row justify-center">

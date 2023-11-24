@@ -10,7 +10,7 @@ const NavBar = () => {
             } aria-current="page">Home</NavLink>
         </li>
         <li>
-            <NavLink to='/about' className={({ isActive, isPending }) =>
+            <NavLink to='/gallery' className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
             }>Gallery</NavLink>
         </li>
