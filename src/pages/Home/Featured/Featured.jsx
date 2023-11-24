@@ -13,7 +13,7 @@ const Featured = () => {
                     <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase">
                         Features
                     </h2>
-                    <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl">
                         Top Picks for Your Fitness Journey
                     </p>
                 </div>

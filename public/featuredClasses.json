@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Cardio Blast",
+        "img": "https://i.ibb.co/4Y1w6sP/Rectangle-2-2.png",
+        "short_description": "High-intensity cardio to boost your heart rate and stamina.",
+        "price": "$13",
+        "rating": 4.8
+    },
+    {
+        "id": 2,
+        "title": "Yoga Flow",
+        "img": "https://i.ibb.co/CwhkFRc/Rectangle-2-3.png",
+        "short_description": "Relaxing yet invigorating yoga poses to enhance flexibility and mindfulness.",
+        "price": "$24",
+        "rating": 4.9
+    },
+    {
+        "id": 3,
+        "title": "Strength Training",
+        "img": "https://i.ibb.co/ysy7F8G/Rectangle-2-4.png",
+        "short_description": "Build muscle and increase strength with targeted exercises.",
+        "price": "$20",
+        "rating": 4.7
+    },
+    {
+        "id": 4,
+        "title": "Pilates Fusion",
+        "img": "https://i.ibb.co/HpFmHbh/Rectangle-3.png",
+        "short_description": "A blend of Pilates and core workouts for a balanced fitness routine.",
+        "price": "$30",
+        "rating": 4.6
+    },
+    {
+        "id": 5,
+        "title": "HIIT Workouts",
+        "img": "https://i.ibb.co/Pc7ZN9R/Rectangle-2.png",
+        "short_description": "High-Intensity Interval Training for maximum calorie burn and endurance.",
+        "price": "$17",
+        "rating": 4.8
+    },
+    {
+        "id": 6,
+        "title": "Dance Cardio",
+        "img": "https://i.ibb.co/cgBk6Cp/Rectangle-2-5.png",
+        "short_description": "Groove to the beat while sweating it out with fun dance routines.",
+        "price": "$10",
+        "rating": 4.9
+    }
+]
