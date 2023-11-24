@@ -6,6 +6,8 @@ import Routes from './Routes/Routes.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={Routes} />
+    <div className='max-w-7xl mx-auto'>
+      <RouterProvider router={Routes} />
+    </div>
   </React.StrictMode>,
 )
