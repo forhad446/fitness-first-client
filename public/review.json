@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/4Y1w6sP/Rectangle-2-2.png",
+        "comment": "Absolutely loved the class! Great workout and fantastic instructor.",
+        "userName": "FitnessFanatic42"
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/CwhkFRc/Rectangle-2-3.png",
+        "comment": "The yoga session was so calming and rejuvenating. Highly recommended!",
+        "userName": "YogiSoul"
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/ysy7F8G/Rectangle-2-4.png",
+        "comment": "Incredible HIIT session! Tough but incredibly rewarding.",
+        "userName": "HIITMaster"
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/HpFmHbh/Rectangle-3.png",
+        "comment": "Pilates fusion class was a perfect balance of challenge and fun!",
+        "userName": "CoreEnthusiast"
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/CwhkFRc/Rectangle-2-3.png",
+        "comment": "Dance cardio was an absolute blast! I can't wait to join again!",
+        "userName": "DanceDivaaa"
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/Pc7ZN9R/Rectangle-2.png",
+        "comment": "Excellent strength training program! Feeling stronger already!",
+        "userName": "PowerLifter99"
+    },
+    {
+        "id": 7,
+        "img": "https://i.ibb.co/HpFmHbh/Rectangle-3.png",
+        "comment": "Great variety of workouts. Really enjoying my fitness journey here!",
+        "userName": "FitnessExplorer"
+    }
+]
