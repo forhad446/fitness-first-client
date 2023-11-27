@@ -5,6 +5,7 @@ import ErrorPage from "../pages/404 page/ErrorPage";
 import Gallery from "../pages/Gallery/Gallery";
 import Trainer from "../pages/Trainer/Trainer";
 import TrainerDetails from "../pages/Trainer/TrainerDetails";
+import BeATrainer from "../pages/Be a Trainer/BeATrainer";
 
 const Routes = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const Routes = createBrowserRouter([
         {
           path: '/trainerDetails/:id',
           element: <TrainerDetails></TrainerDetails>
+        },
+        {
+          path: '/beATrainer',
+          element: <BeATrainer></BeATrainer>
         }
       ]
     },

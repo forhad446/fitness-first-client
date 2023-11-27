@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useTrainer from "../../hook/useTrainer";
 import { CgProfile } from "react-icons/cg";
@@ -56,7 +56,7 @@ const TrainerDetails = () => {
                                             <IoCheckmarkCircleOutline />
                                         </div>
                                         <p className="font-medium text-gray-800">
-                                        10:00-12:00 Monday/Wednesday
+                                            10:00-12:00 Monday/Wednesday
                                         </p>
                                     </li>
                                     <li className="flex items-center">
@@ -64,7 +64,7 @@ const TrainerDetails = () => {
                                             <IoCheckmarkCircleOutline />
                                         </div>
                                         <p className="font-medium text-gray-800">
-                                        12:30-14:00 Friday/Saturday
+                                            12:30-14:00 Friday/Saturday
                                         </p>
                                     </li>
                                     <li className="flex items-center">
@@ -95,12 +95,12 @@ const TrainerDetails = () => {
                             </div>
                         </div>
                         <div>
-                            <a
-                                href="/"
+                            <Link
+                                to="/beATrainer"
                                 className="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-gray-100 bg-blue-500 rounded  hover:bg-blue-600 transition duration-200 shadow-md"
                             >
-                                 Become a Trainer
-                            </a>
+                                Become a Trainer
+                            </Link>
                         </div>
                     </div>
                 </div>
