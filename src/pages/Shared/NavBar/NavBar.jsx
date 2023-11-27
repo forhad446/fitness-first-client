@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 import logo from './../../../assets/logo.png'
 import profile from './../../../assets/img/avatar.png'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../authentication/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../config/firebase.config";
+import { IoMenu, IoClose } from "react-icons/io5";
 
 const NavBar = () => {
 
     const { user, setLoader } = useContext(AuthContext);
+    const [close, setClose] = useState(true)
+
     console.log(user);
     const navItem = <>
         <li>
@@ -77,13 +80,13 @@ const NavBar = () => {
                         <img src={logo} className="h-8" alt="Fitness First" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap">Fitness First</span>
                     </a>
-                    <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                    <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
+                        <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button">
                             <span className="sr-only">Open user menu</span>
                             <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL : profile} alt="user photo" />
                         </button>
                         {/* <!-- Dropdown menu --> */}
-                        <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow " id="user-dropdown">
+                        <div className="z-50 hidden absolute top-4 right-0  my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow " id="user-dropdown">
                             <div className="px-4 py-3">
                                 <span className="block text-sm text-gray-900 ">Bonnie Green</span>
                                 <span className="block text-sm  text-gray-500 truncate ">name@flowbite.com</span>
@@ -103,18 +106,28 @@ const NavBar = () => {
                                 </li>
                             </ul>
                         </div>
-                        <button data-collapse-toggle="navbar-user" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
-                            <span className="sr-only">Open main menu</span>
-                            <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
-                            </svg>
+                        <button onClick={() => setClose(!close)} className="md:hidden">
+                            {
+                                close ?
+                                    <IoMenu size='40px' /> :
+                                    <IoClose size='40px' />
+                            }
                         </button>
                     </div>
-                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
                         <ul className="flex flex-col font-medium p-4 md:p-0 mt-4  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                             {navItem}
                         </ul>
                     </div>
+                    {/* for mobile device */}
+                    {
+                        !close &&
+                        <div className="md:hidden z-30 min-h-screen absolute right-0 top-16 rounded-lg text-center w-6/12  bg-[hsla(0,0%,100%,0.9)] backdrop-blur-[25px] backdrop-saturate-[200%]  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  ">
+                            <ul className="flex flex-col font-medium p-4 gap-2 rtl:space-x-reverse">
+                                {navItem}
+                            </ul>
+                        </div>
+                    }
                 </div>
             </nav>
 
