@@ -16,7 +16,7 @@ const Class = () => {
                     {
                         item.map(item =>
                             // 
-                            <div className="flex flex-col transition duration-300 rounded hover:scale-95">
+                            <div key={item.id} className="flex flex-col transition duration-300 rounded hover:scale-95">
                                 <div className="relative w-full h-48">
                                     <img src={item.img} className="object-cover w-full h-full rounded-t" alt="Plan" />
                                 </div>
