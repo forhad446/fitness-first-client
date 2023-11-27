@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
+import logo from './../../assets/logo.png'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { IoEye, IoEyeOff } from "react-icons/io5";
@@ -21,17 +22,17 @@ const Register = () => {
         setError('');
 
         if (password.length <= 5) {
-            setError("Password must contain at least 6 characters");
+            return setError("Password must contain at least 6 characters");
         } else if (!/[A-Z]/.test(password)) {
-            setError("Password must one uppercase letter");
+            return setError("Password must one uppercase letter");
         } else if (!/[a-z]/.test(password)) {
-            setError("Password must one lowercase letter");
+            return setError("Password must one lowercase letter");
         }
         else if (!/\d/.test(password)) {
-            setError("Password must one digit");
+            return setError("Password must one digit");
         }
         else if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) {
-            setError("Password must one special character");
+            return setError("Password must one special character");
         }
 
         createUser(email, password)
@@ -43,15 +44,15 @@ const Register = () => {
 
     }
     return (
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
+        <div className="flex my-5 min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
             {/* if the user is login then will cannot access this page */}
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
                 <img
                     className="mx-auto h-10 w-auto"
-                    src=''
+                    src={logo}
                 />
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                <h2 className="mt-1 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Sign up new account
                 </h2>
             </div>
