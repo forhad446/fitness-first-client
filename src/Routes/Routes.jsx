@@ -8,6 +8,7 @@ import TrainerDetails from "../pages/Trainer/TrainerDetails";
 import BeATrainer from "../pages/Be a Trainer/BeATrainer";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const Routes = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const Routes = createBrowserRouter([
         },
         {
           path: '/beATrainer',
-          element: <BeATrainer></BeATrainer>
+          element: <PrivateRoute><BeATrainer /></PrivateRoute>
         }
       ]
     },

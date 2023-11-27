@@ -9,6 +9,7 @@ const Login = () => {
 
     const { signInUser, user, googleSignIn } = useContext(AuthContext);
     const [signInError, setSignInError] = useState('');
+    
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -45,10 +46,10 @@ const Login = () => {
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             {/* if the user is login then will cannot access this page */}
-            {/* {
+            {
                 user?.email &&
-                <Navigate to='/profile' />
-            } */}
+                <Navigate to='/' />
+            }
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
                     className="mx-auto h-10 w-auto"

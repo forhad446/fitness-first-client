@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 import logo from './../../assets/logo.png'
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, user } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [hidden, setHidden] = useState(true);
 
@@ -46,6 +46,10 @@ const Register = () => {
     return (
         <div className="flex my-5 min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
             {/* if the user is login then will cannot access this page */}
+            {
+                user?.email &&
+                <Navigate to='/' />
+            }
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
                 <img
@@ -121,12 +125,12 @@ const Register = () => {
                             />
                             <p onClick={() => setHidden(!hidden)}>
                                 {
-                                    hidden ? 
-                                    <IoEyeOff className='absolute top-1 right-2 cursor-pointer' size='24px' /> 
-                                    :
-                                    <IoEye className='absolute top-1 right-2 cursor-pointer' size='24px' />
+                                    hidden ?
+                                        <IoEyeOff className='absolute top-1 right-2 cursor-pointer' size='24px' />
+                                        :
+                                        <IoEye className='absolute top-1 right-2 cursor-pointer' size='24px' />
                                 }
-                                
+
                             </p>
                         </div>
                     </div>

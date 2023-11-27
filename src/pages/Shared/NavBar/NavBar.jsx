@@ -1,8 +1,15 @@
 import { NavLink } from "react-router-dom";
 import logo from './../../../assets/logo.png'
 import profile from './../../../assets/img/avatar.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../authentication/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../config/firebase.config";
 
 const NavBar = () => {
+
+    const { user, setLoader } = useContext(AuthContext);
+    console.log(user);
     const navItem = <>
         <li>
             <NavLink to='/' className={({ isActive, isPending }) =>
@@ -34,17 +41,34 @@ const NavBar = () => {
                 isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
             }>Community</NavLink>
         </li>
-        <li>
-            <NavLink to='/login' className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
-            }>Login</NavLink>
-        </li>
-        <li>
-            <NavLink to='/register' className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
-            }>Register</NavLink>
-        </li>
+        {
+            user?.email ?
+                <>
+                    <li>
+                        <NavLink onClick={() => {
+                            signOut(auth)
+                            setLoader(false)
+                        }} to='/login' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
+                        }>Log Out</NavLink>
+                    </li>
+                </> :
+                <>
+                    <li>
+                        <NavLink to='/login' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
+                        }>Login</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/register' className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
+                        }>Register</NavLink>
+                    </li>
+                </>
+        }
+
     </>
+
     return (
         <div className="  ">
             <nav className="bg-stone-100 ">
@@ -56,7 +80,7 @@ const NavBar = () => {
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-8 h-8 rounded-full" src={profile} alt="user photo" />
+                            <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL : profile} alt="user photo" />
                         </button>
                         {/* <!-- Dropdown menu --> */}
                         <div className="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow " id="user-dropdown">
