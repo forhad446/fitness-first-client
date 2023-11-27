@@ -6,6 +6,7 @@ import Gallery from "../pages/Gallery/Gallery";
 import Trainer from "../pages/Trainer/Trainer";
 import TrainerDetails from "../pages/Trainer/TrainerDetails";
 import BeATrainer from "../pages/Be a Trainer/BeATrainer";
+import Register from "../pages/Register/Register";
 
 const Routes = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const Routes = createBrowserRouter([
         }
       ]
     },
+    {
+      path: '/register',
+      element: <Register></Register>
+    }
   ]);
 
 export default Routes;
