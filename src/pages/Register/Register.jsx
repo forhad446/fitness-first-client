@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const [hidden, setHidden] = useState(true);
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -107,15 +109,24 @@ const Register = () => {
                                 </a>
                             </div>
                         </div>
-                        <div className="mt-2">
+                        <div className="mt-2 relative">
                             <input
                                 id="password"
                                 name="password"
-                                type="password"
+                                type={hidden ? 'password' : 'text'}
                                 autoComplete="current-password"
                                 required
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
+                            <p onClick={() => setHidden(!hidden)}>
+                                {
+                                    hidden ? 
+                                    <IoEyeOff className='absolute top-1 right-2 cursor-pointer' size='24px' /> 
+                                    :
+                                    <IoEye className='absolute top-1 right-2 cursor-pointer' size='24px' />
+                                }
+                                
+                            </p>
                         </div>
                     </div>
 
@@ -140,7 +151,7 @@ const Register = () => {
                         {error && error}
                     </div>
                 </form>
-                <p className="mt-10 text-center text-sm text-gray-500">
+                <p className="mt-4 text-center text-sm text-gray-500">
                     Already have a member?{' '}
                     <Link to="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                         Sign in Now
