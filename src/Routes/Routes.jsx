@@ -10,6 +10,8 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import Classes from "../pages/Classes/Class/Classes";
+import ClassDetails from "../pages/Classes/ClassDetails/ClassDetails";
+import Community from "../pages/Community/Community";
 
 const Routes = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const Routes = createBrowserRouter([
       {
         path: '/classes',
         element: <PrivateRoute><Classes /></PrivateRoute>
+      },
+      {
+        path: '/classes/classDetails/:id',
+        element: <PrivateRoute><ClassDetails /></PrivateRoute>
+      },
+      {
+        path: '/community',
+        element: <Community></Community>
       }
     ]
   },

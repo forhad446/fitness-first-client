@@ -1,7 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Button from '../../Shared/Button';
-import SaturDay from '../ClassDay/SaturDay';
 import PageTitle from './../../Shared/PageTitle/PageTitle';
 import useClassList from '../../../hook/useClassList';
 import ClassList from '../ClassList/ClassList';
@@ -16,7 +15,6 @@ const Classes = () => {
     const Wednesday = classList.filter(item => item.day === 'Wednesday')
     const Thursday = classList.filter(item => item.day === 'Thursday')
     const Friday = classList.filter(item => item.day === 'Friday')
-    console.log(Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday);
 
     return (
         <div className=" ">
@@ -33,12 +31,13 @@ const Classes = () => {
                         <Tab><Button title='Friday' /></Tab>
                     </TabList>
                 </div>
-
+                {/* Weekly schedule */}
                 <div className="flex justify-center my-10">
                     <TabPanel>
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Saturday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -48,6 +47,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Sunday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -57,6 +57,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Monday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -66,6 +67,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Tuesday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -75,6 +77,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Wednesday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -84,6 +87,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Thursday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -93,11 +97,24 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Friday.map(item => <ClassList
+                                    id={item.id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
                         </div>
                     </TabPanel>
+                </div>
+                {/* all class */}
+                <div>
+                    <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center py-10">Get to Know : Our All ClassList</h1>
+                    <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                        {
+                            classList.map(item => <ClassList
+                                id={item.id}
+                                title={item.title}
+                                description={item.short_description} />)
+                        }
+                    </div>
                 </div>
             </Tabs>
         </div>

@@ -6,7 +6,9 @@
         "datetime": "2023-11-24T08:00:00Z",
         "content": "High-Intensity Interval Training (HIIT) has been a game-changer in the fitness world...",
         "img": "https://i.ibb.co/4Y1w6sP/Rectangle-2-2.png",
-        "userName": "FitLover123"
+        "userName": "FitLover123",
+        "like": 105,
+        "dislike": 10
     },
     {
         "id": 2,
@@ -15,7 +17,9 @@
         "datetime": "2023-11-18T10:30:00Z",
         "content": "Maintaining a balanced diet is essential for overall well-being...",
         "img": "https://i.ibb.co/CwhkFRc/Rectangle-2-3.png",
-        "userName": "NutriGuru87"
+        "userName": "NutriGuru87",
+        "like": 68,
+        "dislike": 0
     },
     {
         "id": 3,
@@ -24,7 +28,9 @@
         "datetime": "2023-11-12T09:15:00Z",
         "content": "Fitness isn't just about physical exercise; it's also about mental well-being...",
         "img": "https://i.ibb.co/ysy7F8G/Rectangle-2-4.png",
-        "userName": "ZenActive23"
+        "userName": "ZenActive23",
+        "like": 55,
+        "dislike": 5
     },
     {
         "id": 4,
@@ -33,7 +39,9 @@
         "datetime": "2023-11-06T14:45:00Z",
         "content": "Maintaining motivation for regular workouts can be challenging...",
         "img": "https://i.ibb.co/HpFmHbh/Rectangle-3.png",
-        "userName": "GymEnthusiast99"
+        "userName": "GymEnthusiast99",
+        "like": 46,
+        "dislike": 12
     },
     {
         "id": 5,
@@ -42,7 +50,9 @@
         "datetime": "2023-10-30T11:00:00Z",
         "content": "Rest days are crucial for muscle recovery and overall fitness progress...",
         "img": "https://i.ibb.co/Pc7ZN9R/Rectangle-2.png",
-        "userName": "RecoveryChamp72"
+        "userName": "RecoveryChamp72",
+        "like": 100,
+        "dislike": 15
     },
     {
         "id": 6,
@@ -51,7 +61,9 @@
         "datetime": "2023-10-25T07:30:00Z",
         "content": "Starting your day with healthy habits sets the tone for a productive and energized day ahead...",
         "img": "https://i.ibb.co/cgBk6Cp/Rectangle-2-5.png",
-        "userName": "MorningBoost21"
+        "userName": "MorningBoost21",
+        "like": 60,
+        "dislike": 10
     },
     {
         "id": 7,
@@ -60,6 +72,8 @@
         "datetime": "2023-10-20T13:20:00Z",
         "content": "Weightlifting isn't just about building muscles; it involves a complex physiological process...",
         "img": "https://i.ibb.co/cgBk6Cp/Rectangle-2-5.png",
-        "userName": "MuscleScienceGeek"
+        "userName": "MuscleScienceGeek",
+        "like": 36,
+        "dislike": 30
     }
 ]

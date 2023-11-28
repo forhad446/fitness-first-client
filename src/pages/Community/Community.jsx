@@ -1,12 +1,13 @@
-import useBlog from "../../../hook/useBlog";
+import useBlog from "../../hook/useBlog";
+import PageTitle from "../Shared/PageTitle/PageTitle";
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
-const Blog = () => {
-
+const Community = () => {
     const [blog] = useBlog();
 
     return (
         <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl  my-4">
+            <PageTitle title='Community'></PageTitle>
             <div>
                 <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center py-10 mb-5">
                     Wellness Wisdom: Explore Our Community
@@ -55,7 +56,7 @@ const Blog = () => {
                                             <AiOutlineDislike className="" size='23px' />
                                         </div>
                                         <p className="font-semibold">
-                                            {item.dislike}
+                                        {item.dislike}
                                         </p>
                                     </div>
                                 </div>
@@ -69,4 +70,4 @@ const Blog = () => {
     );
 };
 
-export default Blog;
+export default Community;
