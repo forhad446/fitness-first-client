@@ -9,43 +9,48 @@ import BeATrainer from "../pages/Be a Trainer/BeATrainer";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
+import Classes from "../pages/Classes/Classes";
 
 const Routes = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>,
-        },
-        {
-          path: '/gallery',
-          element: <Gallery></Gallery>
-        },
-        {
-          path: '/trainer',
-          element: <Trainer></Trainer>
-        },
-        {
-          path: '/trainerDetails/:id',
-          element: <TrainerDetails></TrainerDetails>
-        },
-        {
-          path: '/beATrainer',
-          element: <PrivateRoute><BeATrainer /></PrivateRoute>
-        }
-      ]
-    },
-    {
-      path: '/register',
-      element: <Register></Register>
-    },
-    {
-      path: '/login',
-      element: <Login></Login>
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>,
+      },
+      {
+        path: '/gallery',
+        element: <Gallery></Gallery>
+      },
+      {
+        path: '/trainer',
+        element: <Trainer></Trainer>
+      },
+      {
+        path: '/trainerDetails/:id',
+        element: <TrainerDetails></TrainerDetails>
+      },
+      {
+        path: '/beATrainer',
+        element: <PrivateRoute><BeATrainer /></PrivateRoute>
+      },
+      {
+        path: '/classes',
+        element: <PrivateRoute><Classes /></PrivateRoute>
+      }
+    ]
+  },
+  {
+    path: '/register',
+    element: <Register></Register>
+  },
+  {
+    path: '/login',
+    element: <Login></Login>
+  }
+]);
 
 export default Routes;
