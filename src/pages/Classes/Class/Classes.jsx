@@ -2,15 +2,22 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Button from '../../Shared/Button';
 import SaturDay from '../ClassDay/SaturDay';
-import SunDay from '../ClassDay/Sunday';
-import MonDay from '../ClassDay/MonDay';
-import TuesDay from '../ClassDay/TuesDay';
-import ThursDay from '../ClassDay/ThursDay';
-import WednesDay from '../ClassDay/WednesDay';
-import Friday from '../ClassDay/Friday';
 import PageTitle from './../../Shared/PageTitle/PageTitle';
+import useClassList from '../../../hook/useClassList';
+import ClassList from '../ClassList/ClassList';
 
 const Classes = () => {
+    const [classList] = useClassList()
+
+    const Saturday = classList.filter(item => item.day === 'Saturday')
+    const Sunday = classList.filter(item => item.day === 'Sunday')
+    const Monday = classList.filter(item => item.day === 'Monday')
+    const Tuesday = classList.filter(item => item.day === 'Tuesday')
+    const Wednesday = classList.filter(item => item.day === 'Wednesday')
+    const Thursday = classList.filter(item => item.day === 'Thursday')
+    const Friday = classList.filter(item => item.day === 'Friday')
+    console.log(Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday);
+
     return (
         <div className=" ">
             <PageTitle title='Classes'></PageTitle>
@@ -21,33 +28,75 @@ const Classes = () => {
                         <Tab><Button title='Sunday' /></Tab>
                         <Tab><Button title='Monday' /></Tab>
                         <Tab><Button title='Tuesday' /></Tab>
-                        <Tab><Button title='Thursday' /></Tab>
                         <Tab><Button title='Wednesday' /></Tab>
+                        <Tab><Button title='Thursday' /></Tab>
                         <Tab><Button title='Friday' /></Tab>
                     </TabList>
                 </div>
 
                 <div className="flex justify-center my-10">
                     <TabPanel>
-                        <SaturDay></SaturDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Saturday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <SunDay></SunDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Sunday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <MonDay></MonDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Monday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <TuesDay></TuesDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Tuesday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <WednesDay></WednesDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Wednesday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <ThursDay></ThursDay>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Thursday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                     <TabPanel>
-                        <Friday></Friday>
+                        <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+                            {
+                                Friday.map(item => <ClassList
+                                    title={item.title}
+                                    description={item.short_description} />)
+                            }
+                        </div>
                     </TabPanel>
                 </div>
             </Tabs>

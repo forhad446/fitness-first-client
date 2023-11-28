@@ -1,0 +1,235 @@
+[
+    {
+        "id": 1,
+        "title": "Morning Yoga Flow",
+        "short_description": "Start your day with a revitalizing yoga session to invigorate body and mind.",
+        "day": "Saturday"
+    },
+    {
+        "id": 2,
+        "title": "Outdoor Cardio Blast",
+        "short_description": "Join our high-energy outdoor cardio workout for an exhilarating Saturday morning.",
+        "day": "Saturday"
+    },
+    {
+        "id": 3,
+        "title": "Core Strength & Stability",
+        "short_description": "Work on building a strong core and improve stability in this targeted session.",
+        "day": "Saturday"
+    },
+    {
+        "id": 4,
+        "title": "HIIT Intensity",
+        "short_description": "Sweat it out with a high-intensity interval training session, pushing your limits.",
+        "day": "Saturday"
+    },
+    {
+        "id": 5,
+        "title": "Dance Fitness Fusion",
+        "short_description": "Combine dance moves and fitness in this energetic and enjoyable workout.",
+        "day": "Saturday"
+    },
+    {
+        "id": 6,
+        "title": "Strength Training Express",
+        "short_description": "Quick but intense strength-building exercises for a powerful Saturday session.",
+        "day": "Saturday"
+    },
+    {
+        "id": 7,
+        "title": "Meditation and Mindfulness",
+        "short_description": "Calm your mind and find peace through guided meditation techniques."
+    },
+    {
+        "id": 8,
+        "title": "Pilates for Posture",
+        "short_description": "Focus on posture correction and flexibility with Pilates exercises.",
+        "day": "Sunday"
+    },
+    {
+        "id": 9,
+        "title": "Morning Jogging Club",
+        "short_description": "Join our jogging club for a refreshing start to your Sunday.",
+        "day": "Sunday"
+    },
+    {
+        "id": 10,
+        "title": "Functional Training for Mobility",
+        "short_description": "Enhance your functional movements and mobility for daily activities.",
+        "day": "Sunday"
+    },
+    {
+        "id": 11,
+        "title": "Zumba Dance Party",
+        "short_description": "Get your groove on with Zumba dance moves and rhythms.",
+        "day": "Monday"
+    },
+    {
+        "id": 12,
+        "title": "Total Body Stretch",
+        "short_description": "Relax and stretch your muscles for improved flexibility and recovery.",
+        "day": "Monday"
+    },
+    {
+        "id": 13,
+        "title": "Cardio Kickboxing",
+        "short_description": "Unleash your energy with cardio-based kickboxing routines.",
+        "day": "Monday"
+    },
+    {
+        "id": 14,
+        "title": "Full-Body Circuit",
+        "short_description": "Engage in a circuit workout targeting every major muscle group.",
+        "day": "Monday"
+    },
+    {
+        "id": 15,
+        "title": "Mindful Breathing Workshop",
+        "short_description": "Learn the art of mindful breathing for relaxation and stress relief.",
+        "day": "Tuesday"
+    },
+    {
+        "id": 16,
+        "title": "Legs and Glutes Sculpt",
+        "short_description": "Focus on sculpting and toning your lower body for strength and aesthetics.",
+        "day": "Tuesday"
+    },
+    {
+        "id": 17,
+        "title": "Yoga for Flexibility",
+        "short_description": "Improve flexibility and balance with gentle yoga stretches and poses.",
+        "day": "Tuesday"
+    },
+    {
+        "id": 18,
+        "title": "Boxing HIIT",
+        "short_description": "Combine boxing drills with high-intensity intervals for a powerful workout.",
+        "day": "Tuesday"
+    },
+    {
+        "id": 19,
+        "title": "Core Yoga Fusion",
+        "short_description": "Blend core-focused exercises with the grace of yoga movements.",
+        "day": "Wednesday"
+    },
+    {
+        "id": 20,
+        "title": "Stress-Relief Tai Chi",
+        "short_description": "Practice the art of Tai Chi for stress reduction and inner peace.",
+        "day": "Wednesday"
+    },
+    {
+        "id": 21,
+        "title": "Upper Body Strength",
+        "short_description": "Target your upper body muscles for strength and definition.",
+        "day": "Wednesday"
+    },
+    {
+        "id": 22,
+        "title": "Plyometric Power",
+        "short_description": "Engage in explosive and dynamic exercises to enhance power.",
+        "day": "Wednesday"
+    },
+    {
+        "id": 23,
+        "title": "Morning Flow Yoga",
+        "short_description": "Start your day with a serene and flowing yoga practice.",
+        "day": "Thursday"
+    },
+    {
+        "id": 24,
+        "title": "Cardio Dance Sculpt",
+        "short_description": "Combine cardio dance routines with strength-building exercises.",
+        "day": "Thursday"
+    },
+    {
+        "id": 25,
+        "title": "Mental Focus Meditation",
+        "short_description": "Sharpen your focus and concentration through guided meditation.",
+        "day": "Thursday"
+    },
+    {
+        "id": 26,
+        "title": "Functional Core Workout",
+        "short_description": "Work on functional movements and core strength for everyday activities.",
+        "day": "Thursday"
+    },
+    {
+        "id": 27,
+        "title": "Zumba Fitness Fusion",
+        "short_description": "Mix Zumba dance with various fitness styles for an all-rounded workout.",
+        "day": "Friday"
+    },
+    {
+        "id": 28,
+        "title": "Power Yoga",
+        "short_description": "Elevate your yoga practice with powerful and challenging poses.",
+        "day": "Friday"
+    },
+    {
+        "id": 29,
+        "title": "Total Body Conditioning",
+        "short_description": "A comprehensive workout targeting the entire body for strength and endurance.",
+        "day": "Friday"
+    },
+    {
+        "id": 1,
+        "title": "Sunrise Meditation",
+        "short_description": "Welcome the day with a peaceful meditation session, setting a positive tone for the morning.",
+        "day": "Sunday"
+    },
+    {
+        "id": 2,
+        "title": "Circuit Training Madness",
+        "short_description": "An intense circuit workout guaranteed to push your limits and elevate your fitness.",
+        "day": "Monday"
+    },
+    {
+        "id": 3,
+        "title": "Flexibility Fusion",
+        "short_description": "Enhance flexibility and mobility with a blend of yoga and stretching exercises.",
+        "day": "Tuesday"
+    },
+    {
+        "id": 4,
+        "title": "Mindful Movement Workshop",
+        "short_description": "Discover the power of mindfulness in movement, combining meditation with physical activity.",
+        "day": "Wednesday"
+    },
+    {
+        "id": 5,
+        "title": "Boxing Bootcamp Challenge",
+        "short_description": "Unleash your inner fighter and conquer this high-energy boxing-inspired bootcamp.",
+        "day": "Thursday"
+    },
+    {
+        "id": 6,
+        "title": "Pilates for Posture",
+        "short_description": "Focus on posture and core strength through a dedicated Pilates session.",
+        "day": "Friday"
+    },
+    {
+        "id": 7,
+        "title": "Weekend Warrior Workout",
+        "short_description": "A mix of strength and cardio exercises to kickstart the weekend on a healthy note.",
+        "day": "Saturday"
+    },
+    {
+        "id": 8,
+        "title": "Zumba Fiesta",
+        "short_description": "Dance your way to fitness with this vibrant and fun-filled Zumba session.",
+        "day": "Sunday"
+    },
+    {
+        "id": 9,
+        "title": "HIIT & Core Fusion",
+        "short_description": "A fusion of high-intensity intervals and core-focused exercises for a full-body burn.",
+        "day": "Monday"
+    },
+    {
+        "id": 10,
+        "title": "Relaxing Yoga Wind-down",
+        "short_description": "Ease into the evening with a calming yoga session aimed at relaxation and stress relief.",
+        "day": "Tuesday"
+    }
+]
