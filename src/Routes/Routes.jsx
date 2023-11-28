@@ -9,7 +9,7 @@ import BeATrainer from "../pages/Be a Trainer/BeATrainer";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
-import Classes from "../pages/Classes/Classes";
+import Classes from "../pages/Classes/Class/Classes";
 
 const Routes = createBrowserRouter([
   {

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Trainer = () => {
     const [trainer] = useTrainer();
     return (
-        <div className="my-10">
+        <div className="mb-10">
             <Helmet>
                 <title>Fitness First | Trainer </title>
                 <link rel="canonical" href="/" />
