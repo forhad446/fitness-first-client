@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import logo from './../../../assets/logo.png'
 import profile from './../../../assets/img/avatar.png'
 import { useContext, useState } from "react";
@@ -51,7 +51,8 @@ const NavBar = () => {
                         <NavLink onClick={() => {
                             signOut(auth)
                             setLoader(false)
-                        }} to='/login' className={({ isActive, isPending }) =>
+                            Navigate ('/login')
+                        }} className={({ isActive, isPending }) =>
                             isPending ? "pending" : isActive ? "block py-2 px-3  rounded md:hover:text-blue-700 md:text-blue-700 md:p-0 underline" : ""
                         }>Log Out</NavLink>
                     </li>
@@ -83,7 +84,7 @@ const NavBar = () => {
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
                         <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button">
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL : profile} alt="user photo" />
+                            <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL ? user?.photoURL : profile : profile} alt="user photo" />
                         </button>
                         <button onClick={() => setClose(!close)} className="md:hidden">
                             {

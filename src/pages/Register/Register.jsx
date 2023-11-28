@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { BsGoogle } from "react-icons/bs";
+import { BsGoogle } from "react-icons/Bs";
 import logo from './../../assets/logo.png'
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import axios from 'axios';
 
 const Register = () => {
     const { createUser, user } = useContext(AuthContext);
@@ -17,6 +18,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoUrl = form.photoUrl.value;
+        const user = { name, email, password, photoUrl }
 
         // clear the error state value
         setError('');
@@ -36,7 +38,10 @@ const Register = () => {
         }
 
         createUser(email, password)
-            .then(() => console.log('account created done'))
+            .then(() => {
+                console.log('account created done')
+                axios.post('http://localhost:5000/users', user)
+            })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
