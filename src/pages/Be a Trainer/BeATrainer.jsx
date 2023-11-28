@@ -1,5 +1,41 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "../../authentication/AuthProvider";
 
 const BeATrainer = () => {
+    const { user } = useContext(AuthContext);
+
+    // // Available Time in a week
+    const [checkedItems, setCheckedItems] = useState({
+        Saturday: false,
+        Sunday: false,
+        Monday: false,
+        Tuesday: false,
+        Wednesday: false,
+        Thursday: false,
+        Friday: false,
+    });
+
+    const handleCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        setCheckedItems({ ...checkedItems, [name]: checked });
+    };
+
+    const handleAddApply = event => {
+        event.preventDefault();
+        const form = event.target;
+        const fullName = form.fullName.value;
+        const email = form.email.value;
+        const age = form.age.value;
+        const img = form.img.value;
+        // Available Time in a week
+        const weekendTime = Object.keys(checkedItems).filter(
+            (key) => checkedItems[key])
+
+        const data = { fullName, email, age, img, weekendTime }
+
+        console.log(data);
+    }
+
     return (
         <div className="flex justify-center my-6">
             <div className="flex flex-col md:w-9/12  px-4  rounded-lg shadow  sm:px-6 md:px-8 lg:px-10">
@@ -7,7 +43,7 @@ const BeATrainer = () => {
                     Be a Trainer
                 </h1>
                 <div className="p-4 ">
-                    <form action="#">
+                    <form onSubmit={handleAddApply}>
                         <div className="flex flex-col mb-2">
                             <div className=" relative ">
                                 <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="fullName" placeholder="Full Name" />
@@ -15,7 +51,7 @@ const BeATrainer = () => {
                         </div>
                         <div className="flex flex-col mb-2">
                             <div className=" relative ">
-                                <input type="email" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="email" placeholder="Enter E-Mail" />
+                                <input type="email" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="email" value={user?.email} readonly />
                             </div>
                         </div>
                         <div className="flex flex-col mb-2">
@@ -34,32 +70,67 @@ const BeATrainer = () => {
                             </h1>
                             <div className="grid md:grid-cols-3 gap-2">
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Saturday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Saturday"
+                                        checked={checkedItems.Saturday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Saturday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Sunday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Sunday"
+                                        checked={checkedItems.Sunday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Sunday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Monday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Monday"
+                                        checked={checkedItems.Monday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Monday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Tuesday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Tuesday"
+                                        checked={checkedItems.Tuesday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Tuesday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Wednesday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Wednesday"
+                                        checked={checkedItems.Wednesday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Wednesday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Thursday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Thursday"
+                                        checked={checkedItems.Thursday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Thursday
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Friday</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        name="Friday"
+                                        checked={checkedItems.Friday}
+                                        onChange={handleCheckboxChange}
+                                    />
+                                    Friday
                                 </label>
                             </div>
                         </div>
