@@ -5,13 +5,16 @@ import { CgProfile } from "react-icons/cg";
 import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 const TrainerDetails = () => {
-    const [trainer, setTrainer] = useState([])
+    const [trainers, setTrainers] = useState([])
     const { id } = useParams()
-    const isExit = trainer.find(item => item.id === parseInt(id))
+    const [trainer] = useTrainer();
+    
+    const isExit = trainer.find(item => item._id === id)
+    console.log(isExit);
     useEffect(() => {
-        fetch('./../Trainer.json')
+        fetch('http://localhost:5000/trainers')
             .then(res => res.json())
-            .then(data => setTrainer(data))
+            .then(data => setTrainers(data))
     }, [id])
     return (
         <div>
@@ -30,7 +33,7 @@ const TrainerDetails = () => {
                             <div className="flex items-center justify-between mb-6 border-b">
                                 <div>
                                     <p className="text-sm font-bold tracking-wider uppercase">
-                                        {isExit?.trainerName}
+                                        {isExit?.fullName}
                                     </p>
                                     <p className="text-3xl font-extrabold">Trainer</p>
                                 </div>

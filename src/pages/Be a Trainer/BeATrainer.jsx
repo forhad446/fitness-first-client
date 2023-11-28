@@ -3,6 +3,8 @@ import { AuthContext } from "../../authentication/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -19,6 +21,7 @@ const BeATrainer = () => {
         })
     }
 
+    const [error, setError] = useState('')
     const [selectedSkills, setSelectedSkills] = useState([]);
     const [selectedSlots, setSelectedSlots] = useState([]);
     const [checkedItems, setCheckedItems] = useState({
@@ -30,6 +33,9 @@ const BeATrainer = () => {
         Thursday: false,
         Friday: false,
     });
+
+    // toast message
+    const notify = () => toast(error);
 
     // Available Skill
     const handleCheckboxChangeForSkill = (event) => {
@@ -72,6 +78,18 @@ const BeATrainer = () => {
 
         const data = { fullName, email, age, img, weekendTime, selectedSlots, selectedSkills }
 
+        // clear the error state
+        setError('')
+
+        if (!/^(ftp|http|https):\/\/[^ "]+$/.test(img)) {
+            setError('Image link is invalid');
+            return (error && notify());
+        }
+        else if (!/^[A-Za-z '-]+$/.test(fullName)) {
+            setError('FullName is invalid');
+            return (error && notify());
+        }
+
         if (data) {
             axios.post('http://localhost:5000/trainers', data)
                 .then(res => {
@@ -92,7 +110,7 @@ const BeATrainer = () => {
                     <form onSubmit={handleAddApply}>
                         <div className="flex flex-col mb-2">
                             <div className=" relative ">
-                                <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="fullName" placeholder="Full Name" />
+                                <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="fullName" placeholder="Full Name" required />
                             </div>
                         </div>
                         <div className="flex flex-col mb-2">
@@ -102,12 +120,12 @@ const BeATrainer = () => {
                         </div>
                         <div className="flex flex-col mb-2">
                             <div className=" relative ">
-                                <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="age" placeholder="Your Age" />
+                                <input type="number" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="age" placeholder="Your Age" required />
                             </div>
                         </div>
                         <div className="flex flex-col mb-2">
                             <div className=" relative ">
-                                <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="img" placeholder="Profile Image Link" />
+                                <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-500 w-full py-2 px-4  text-gray-700  shadow-sm text-base " name="img" placeholder="Profile Image Link" required />
                             </div>
                         </div>
                         <div>
@@ -368,6 +386,18 @@ const BeATrainer = () => {
                                 Applied
                             </button>
                         </div>
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </form>
                 </div>
             </div>

@@ -4,6 +4,7 @@ import Button from '../../Shared/Button';
 import PageTitle from './../../Shared/PageTitle/PageTitle';
 import useClassList from '../../../hook/useClassList';
 import ClassList from '../ClassList/ClassList';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
     const [classList] = useClassList()
@@ -18,6 +19,9 @@ const Classes = () => {
 
     return (
         <div className=" ">
+            <Helmet>
+                <title>Fitness First | Classes </title>
+            </Helmet>
             <PageTitle title='Classes'></PageTitle>
             <Tabs>
                 <div className="flex justify-center mt-10">

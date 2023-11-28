@@ -5,7 +5,6 @@ const Class = () => {
 
     return (
         <>
-
             <div className="my-10 ">
                 <div className="mb-10">
                     <h1 className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900  sm:text-4xl text-center">

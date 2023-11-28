@@ -10,17 +10,16 @@ const Trainer = () => {
         <div className="mb-10">
             <Helmet>
                 <title>Fitness First | Trainer </title>
-                <link rel="canonical" href="/" />
             </Helmet>
             <PageTitle title='Trainer'></PageTitle>
-            <div className="flex justify-center">
+            <div className="flex justify-center my-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
                     {
-                        trainer.map(item => <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure><img src={item.profileImage} alt="Profile" /></figure>
-                            <div className="card-body">
+                        trainer.map(item => <div className="card w-96 bg-base-100 shadow-xl ">
+                            <figure className="flex-1"><img src={item?.img} alt="Profile" /></figure>
+                            <div className="card-body flex-1">
                                 <h2 className="card-title">
-                                    {item.trainerName}
+                                    {item?.fullName}
                                 </h2>
                                 <div className="my-3">
                                     <p className="pb-2">Years of Experience : 2 years</p>
@@ -29,7 +28,7 @@ const Trainer = () => {
                                 <div className="flex justify-evenly border-t-2 border-green-500 py-4">
                                     <SocialLink></SocialLink>
                                 </div>
-                                <Link to={`/trainerDetails/${item.id}`}>
+                                <Link to={`/trainerDetails/${item._id}`}>
                                     <button className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600 w-full">Know more</button>
                                 </Link>
                             </div>

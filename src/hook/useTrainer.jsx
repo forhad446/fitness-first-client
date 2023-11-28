@@ -4,7 +4,7 @@ const useTrainer = () => {
     const [trainer, setTrainer] = useState([])
 
     useEffect(() => {
-        fetch('./Trainer.json')
+        fetch('http://localhost:5000/trainers')
         .then(res => res.json())
         .then(data => setTrainer(data))
     }, [])
