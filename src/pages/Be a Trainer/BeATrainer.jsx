@@ -1,10 +1,26 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../authentication/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+
 
 const BeATrainer = () => {
     const { user } = useContext(AuthContext);
+    const MySwal = withReactContent(Swal)
+    const showSwalWithLink = () => {
+        MySwal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Trainer Request Successfully done',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
 
-    // // Available Time in a week
+    const [selectedSkills, setSelectedSkills] = useState([]);
+    const [selectedSlots, setSelectedSlots] = useState([]);
     const [checkedItems, setCheckedItems] = useState({
         Saturday: false,
         Sunday: false,
@@ -15,11 +31,34 @@ const BeATrainer = () => {
         Friday: false,
     });
 
+    // Available Skill
+    const handleCheckboxChangeForSkill = (event) => {
+        const { value, checked } = event.target;
+
+        if (checked) {
+            setSelectedSkills([...selectedSkills, value]); // Add the selected skill
+        } else {
+            const updatedSkills = selectedSkills.filter((skill) => skill !== value); // Remove the deselected skill
+            setSelectedSkills(updatedSkills);
+        }
+    };
+    // Available Time in a day
+    const handleCheckboxChangeForDay = (event) => {
+        const { value, checked } = event.target;
+
+        if (checked) {
+            setSelectedSlots([...selectedSlots, value]); // Add the selected slot
+        } else {
+            const updatedSlots = selectedSlots.filter((slot) => slot !== value); // Remove the deselected slot
+            setSelectedSlots(updatedSlots);
+        }
+    };
+    // Available Time in a week
     const handleCheckboxChange = (event) => {
         const { name, checked } = event.target;
         setCheckedItems({ ...checkedItems, [name]: checked });
     };
-
+    // for button submit
     const handleAddApply = event => {
         event.preventDefault();
         const form = event.target;
@@ -31,9 +70,16 @@ const BeATrainer = () => {
         const weekendTime = Object.keys(checkedItems).filter(
             (key) => checkedItems[key])
 
-        const data = { fullName, email, age, img, weekendTime }
+        const data = { fullName, email, age, img, weekendTime, selectedSlots, selectedSkills }
 
-        console.log(data);
+        if (data) {
+            axios.post('http://localhost:5000/trainers', data)
+                .then(res => {
+                    showSwalWithLink()
+                    form.reset()
+                })
+                .catch(error => console.log(error.message))
+        }
     }
 
     return (
@@ -72,6 +118,7 @@ const BeATrainer = () => {
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
                                     <input
                                         type="checkbox"
+                                        className="checkbox"
                                         name="Saturday"
                                         checked={checkedItems.Saturday}
                                         onChange={handleCheckboxChange}
@@ -82,6 +129,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Sunday"
+                                        className="checkbox"
                                         checked={checkedItems.Sunday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -91,6 +139,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Monday"
+                                        className="checkbox"
                                         checked={checkedItems.Monday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -100,6 +149,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Tuesday"
+                                        className="checkbox"
                                         checked={checkedItems.Tuesday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -109,6 +159,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Wednesday"
+                                        className="checkbox"
                                         checked={checkedItems.Wednesday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -118,6 +169,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Thursday"
+                                        className="checkbox"
                                         checked={checkedItems.Thursday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -127,6 +179,7 @@ const BeATrainer = () => {
                                     <input
                                         type="checkbox"
                                         name="Friday"
+                                        className="checkbox"
                                         checked={checkedItems.Friday}
                                         onChange={handleCheckboxChange}
                                     />
@@ -140,60 +193,112 @@ const BeATrainer = () => {
                             </h1>
                             <div className="grid md:grid-cols-3 gap-2">
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">6:00-8:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="7:00-9:00 am"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    7:00-9:00 am
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">7:00-9:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="8:00-9:00 am"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    8:00-9:00 am
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">6:00-7:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="7:00-8:00 am"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    7:00-8:00 am
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">7:00-8:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="8:00-10:00 am"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    8:00-10:00 am
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">8:00-10:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="9:00-10:00 am"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    9:00-10:00 am
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">8:00-9:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="10:00-12:00 pm"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    10:00-11:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">9:00-11:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="11:00-12:00 pm"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    11:00-12:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">10:00-12:00 am</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="1:00-3:00 pm"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    1:00-3:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">1:00-3:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value=""
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    2:00-4:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">2:00-4:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value=""
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    4:00-6:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">4:00-6:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="6:00-8:00 pm"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    6:00-8:00 pm
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">6:00-8:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                                <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">8:00-10:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                                <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">7:00-8:00 pm</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="8:00-10:00 pm"
+                                        onChange={handleCheckboxChangeForDay}
+                                    />
+                                    8:00-10:00 pm
                                 </label>
                             </div>
                         </div>
@@ -203,28 +308,58 @@ const BeATrainer = () => {
                             </h1>
                             <div className="grid md:grid-cols-3 gap-2">
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Communication</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Communication"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Communication
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Adaptability</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Adaptability"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Adaptability
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Motivational</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Motivational"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Motivational
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Nutrition Knowledge</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Nutrition Knowledge"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Nutrition Knowledge
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Problem-solving</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Problem Solving"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Problem Solving
                                 </label>
                                 <label className="label cursor-pointer border-2 rounded-lg px-2">
-                                    <span className="label-text">Empathy and Patience</span>
-                                    <input type="checkbox" className="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox"
+                                        value="Empathy and Patience"
+                                        onChange={handleCheckboxChangeForSkill}
+                                    />
+                                    Empathy and Patience
                                 </label>
                             </div>
                         </div>
