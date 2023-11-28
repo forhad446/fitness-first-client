@@ -7,7 +7,7 @@ import { IoEye, IoEyeOff } from "react-icons/io5";
 import axios from 'axios';
 
 const Register = () => {
-    const { createUser, user } = useContext(AuthContext);
+    const { createUser, googleSignIn, user } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [hidden, setHidden] = useState(true);
 
@@ -41,12 +41,27 @@ const Register = () => {
             .then(() => {
                 console.log('account created done')
                 axios.post('http://localhost:5000/users', user)
+                    .then(res => console.log('res done'))
+                    .catch(error => console.log(error.message))
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 setError(errorMessage);
             });
 
+    }
+    // google sign in handling
+    const handleGoogleSignIn = () => {
+        if (googleSignIn) {
+            googleSignIn()
+                .then((result) => {
+                    console.log(result.user);
+                })
+                .catch((error) => {
+                    console.log(error.message);
+
+                });
+        }
     }
     return (
         <div className="flex my-5 min-h-full flex-1 flex-col justify-center px-6 lg:px-8">
@@ -150,7 +165,7 @@ const Register = () => {
                     </div>
                     {/* sign up with google */}
                     <div className="px-6 sm:px-0 max-w-sm">
-                        <button type="button"
+                        <button type="button" onClick={handleGoogleSignIn}
                             className="text-white w-full  bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between dark:focus:ring-[#4285F4]/55 mr-2 mb-2">
                             <BsGoogle />
                             Sign up with Google
