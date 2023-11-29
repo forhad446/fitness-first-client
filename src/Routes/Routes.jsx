@@ -12,6 +12,10 @@ import PrivateRoute from "./PrivateRoute";
 import Classes from "../pages/Classes/Class/Classes";
 import ClassDetails from "../pages/Classes/ClassDetails/ClassDetails";
 import Community from "../pages/Community/Community";
+import Dashboard from "../Layout/Dashboard";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import AllSubscribers from "../pages/Dashboard/AllSubscribers/AllSubscribers";
 
 const Routes = createBrowserRouter([
   {
@@ -60,6 +64,27 @@ const Routes = createBrowserRouter([
   {
     path: '/login',
     element: <Login></Login>
+  },
+  {
+    path: "dashboard",
+    element: <PrivateRoute><Dashboard /></PrivateRoute>,
+    children: [
+      // normal user routes
+      {
+        path: 'userHome',
+        element: <UserHome />,
+      },
+
+      // admin only routes
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: '/dashboard/allSubscribers',
+        element: <AllSubscribers></AllSubscribers>
+      }
+    ]
   }
 ]);
 

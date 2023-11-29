@@ -5,11 +5,16 @@ import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import axios from 'axios';
+import useDBAllUser from "../../hook/useDBAllUser";
 
 const Register = () => {
     const { createUser, googleSignIn, user } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [hidden, setHidden] = useState(true);
+    const role = 'user'
+
+    // all dbusers 
+    const dbUsers = useDBAllUser();
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -18,7 +23,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoUrl = form.photoUrl.value;
-        const user = { name, email, password, photoUrl }
+        const user = { name, email, password, photoUrl, role }
 
         // clear the error state value
         setError('');
@@ -39,7 +44,6 @@ const Register = () => {
 
         createUser(email, password)
             .then(() => {
-                console.log('account created done')
                 axios.post('http://localhost:5000/users', user)
                     .then(res => console.log('res done'))
                     .catch(error => console.log(error.message))
@@ -55,7 +59,22 @@ const Register = () => {
         if (googleSignIn) {
             googleSignIn()
                 .then((result) => {
-                    console.log(result.user);
+                    const name = result?.user?.displayName;
+                    const email = result?.user?.email;
+                    const photoUrl = result?.user?.photoURL;
+                    const password = '';
+                    const user = { name, email, password, photoUrl, role }
+                    const isExit = dbUsers.filter(item => item.email === email);
+
+                    if (isExit.length === 0) {
+                        axios.post('http://localhost:5000/users', user)
+                            .then(res => console.log('res done'))
+                            .catch(error => console.log(error.message))
+                    } else {
+                        console.log('email already exit');
+                    }
+
+
                 })
                 .catch((error) => {
                     console.log(error.message);
