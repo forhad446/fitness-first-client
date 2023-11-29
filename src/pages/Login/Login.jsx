@@ -3,13 +3,19 @@ import logo from './../../assets/logo.png'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../authentication/AuthProvider";
 import { BsGoogle } from 'react-icons/Bs';
+import useDBAllUser from "../../hook/useDBAllUser";
+import axios from "axios";
 
 
 const Login = () => {
 
     const { signInUser, user, googleSignIn } = useContext(AuthContext);
     const [signInError, setSignInError] = useState('');
-    
+
+    // all dbusers 
+    const dbUsers = useDBAllUser();
+    const role = 'user'
+
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -22,9 +28,9 @@ const Login = () => {
 
         if (signInUser) {
             signInUser(email, password)
-            .then(result => console.log('login successfully done',result))
-            .catch(error => console.log(error))
-                
+                .then(result => console.log('login successfully done', result))
+                .catch(error => console.log(error))
+
         }
         const handleGoogleSignIn = () => {
             googleSignIn()
@@ -35,7 +41,18 @@ const Login = () => {
         if (googleSignIn) {
             googleSignIn()
                 .then((result) => {
-                    console.log(result.user);
+                    const name = result?.user?.displayName;
+                    const email = result?.user?.email;
+                    const photoUrl = result?.user?.photoURL;
+                    const password = '';
+                    const user = { name, email, password, photoUrl, role }
+                    const isExit = dbUsers.filter(item => item.email === email);
+
+                    if (isExit.length === 0) {
+                        axios.post('http://localhost:5000/users', user)
+                            .then(res => console.log('res done'))
+                            .catch(error => console.log(error.message))
+                    }
                 })
                 .catch((error) => {
                     console.log(error.message);

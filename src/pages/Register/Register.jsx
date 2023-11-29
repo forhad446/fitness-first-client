@@ -70,11 +70,7 @@ const Register = () => {
                         axios.post('http://localhost:5000/users', user)
                             .then(res => console.log('res done'))
                             .catch(error => console.log(error.message))
-                    } else {
-                        console.log('email already exit');
                     }
-
-
                 })
                 .catch((error) => {
                     console.log(error.message);
