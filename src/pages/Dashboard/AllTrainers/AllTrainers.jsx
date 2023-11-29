@@ -1,9 +1,9 @@
 import useDBAllUser from "../../../hook/useDBAllUser";
 
-const AllSubscribers = () => {
-
+const AllTrainers = () => {
     // all dbUsers 
     const dbUsers = useDBAllUser();
+    const trainers = dbUsers.filter(item => item.role === 'Trainer');
 
     return (
         <div>
@@ -30,7 +30,7 @@ const AllSubscribers = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        dbUsers.map(item => <tr>
+                                        trainers.map(item => <tr>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0">
@@ -52,7 +52,7 @@ const AllSubscribers = () => {
                                             </td>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <p className="text-gray-900 whitespace-no-wrap">
-                                                {item?.role}
+                                                    {item?.role}
                                                 </p>
                                             </td>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
@@ -78,4 +78,4 @@ const AllSubscribers = () => {
     );
 };
 
-export default AllSubscribers;
+export default AllTrainers;

@@ -33,7 +33,7 @@ const Dashboard = () => {
                                     All subscribers</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manageItems">
+                                <NavLink to="/dashboard/allTrainers">
                                     <FaChalkboardTeacher></FaChalkboardTeacher>
                                     All Trainers</NavLink>
                             </li>

@@ -16,6 +16,7 @@ import Dashboard from "../Layout/Dashboard";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllSubscribers from "../pages/Dashboard/AllSubscribers/AllSubscribers";
+import AllTrainers from "../pages/Dashboard/AllTrainers/AllTrainers";
 
 const Routes = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const Routes = createBrowserRouter([
       {
         path: '/dashboard/allSubscribers',
         element: <AllSubscribers></AllSubscribers>
+      },
+      {
+        path: '/dashboard/allTrainers',
+        element: <AllTrainers></AllTrainers>
       }
     ]
   }
