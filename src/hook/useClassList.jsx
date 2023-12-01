@@ -4,7 +4,7 @@ const useClassList = () => {
     const [classList, setClassList] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/class')
+        fetch('https://fitness-first-server.vercel.app/class')
             .then(res => res.json())
             .then(data => setClassList(data))
     }, [])

@@ -28,8 +28,8 @@ const Login = () => {
 
         if (signInUser) {
             signInUser(email, password)
-                .then(result => console.log('login successfully done', result))
-                .catch(error => console.log(error))
+                .then(result => {})
+                .catch(error => {})
 
         }
         const handleGoogleSignIn = () => {
@@ -49,13 +49,13 @@ const Login = () => {
                     const isExit = dbUsers.filter(item => item.email === email);
 
                     if (isExit.length === 0) {
-                        axios.post('http://localhost:5000/users', user)
-                            .then(res => console.log('res done'))
-                            .catch(error => console.log(error.message))
+                        axios.post('https://fitness-first-server.vercel.app/users', user)
+                            .then(res => {})
+                            .catch(error => {})
                     }
                 })
                 .catch((error) => {
-                    console.log(error.message);
+                    {};
 
                 });
         }

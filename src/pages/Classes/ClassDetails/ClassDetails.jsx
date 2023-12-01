@@ -7,11 +7,7 @@ const classNameDetails = () => {
     const { id } = useParams()
     const classList = useClassList()
     
-    // const [classList, setClassList] = useState(allClass)
-    // console.log(classList);
     const isExit = classList.find(item => item._id === id)
-
-    
 
     useEffect(() => {
         // fetch('./../../../../public/ClassList.json')

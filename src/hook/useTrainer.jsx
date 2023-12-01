@@ -4,7 +4,7 @@ const useTrainer = () => {
     const [trainer, setTrainer] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/trainers')
+        fetch('https://fitness-first-server.vercel.app/trainers')
         .then(res => res.json())
         .then(data => setTrainer(data))
     }, [])

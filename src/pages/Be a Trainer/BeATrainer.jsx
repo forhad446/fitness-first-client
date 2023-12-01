@@ -97,13 +97,13 @@ const BeATrainer = () => {
 
         if (data) {
             if (isExit.length === 0) {
-                axios.post('http://localhost:5000/trainers', data)
+                axios.post('https://fitness-first-server.vercel.app/trainers', data)
                     .then(res => {
                         showSwalWithLink()
                         form.reset()
                         Navigate('/trainer')
                     })
-                    .catch(error => console.log(error.message))
+                    .catch(error => {})
             } else {
                 setError('Already Applied For Trainer')
             }

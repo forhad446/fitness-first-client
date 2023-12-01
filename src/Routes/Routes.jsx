@@ -22,6 +22,11 @@ import AdminRoute from "./AdminRoute";
 import Setting from "../pages/Dashboard/UserHome/Setting/Setting";
 import TrainerHome from "../pages/Dashboard/TrainerHome/TrainerHome/TrainerHome";
 import AddClass from "../pages/Dashboard/TrainerHome/AddClass/AddClass";
+import Forum from "../pages/Dashboard/TrainerHome/Forum/Forum";
+import MenageMember from "../pages/Dashboard/TrainerHome/ManageMember/MenageMember";
+import ManageSlot from "../pages/Dashboard/TrainerHome/ManageSlot/MangeSlot";
+import Balance from "../pages/Dashboard/AdminHome/Balance/Balance";
+import Activity from "../pages/Dashboard/UserHome/Activity/Activity";
 
 const Routes = createBrowserRouter([
   {
@@ -84,6 +89,10 @@ const Routes = createBrowserRouter([
         path: 'ProfileSetting',
         element: <Setting></Setting>
       },
+      {
+        path: 'activity',
+        element: <Activity></Activity>
+      },
 
       // trainer only routes
       {
@@ -93,6 +102,18 @@ const Routes = createBrowserRouter([
       {
         path: 'addClass',
         element: <AddClass></AddClass>
+      },
+      {
+        path: 'addForum',
+        element: <Forum></Forum>
+      },
+      {
+        path: 'manageSlot',
+        element: <ManageSlot ></ManageSlot>
+      },
+      {
+        path: 'manageMember',
+        element: <MenageMember></MenageMember>
       },
 
       // admin only routes
@@ -111,6 +132,10 @@ const Routes = createBrowserRouter([
       {
         path: '/dashboard/appliedTrainer',
         element: <AdminRoute><AppliedTrainer /></AdminRoute>
+      },
+      {
+        path: '/dashboard/balance',
+        element: <AdminRoute><Balance /></AdminRoute>
       }
     ]
   }

@@ -19,9 +19,6 @@ const Dashboard = () => {
     const [isAdmin, setIsAdmin] = useState(currentUser?.role);
     const role = currentUser?.role;
 
-    console.log(currentUser);
-    console.log(isAdmin);
-
     return (
         <div className="flex">
             {/* dashboard side bar */}
@@ -50,31 +47,31 @@ const Dashboard = () => {
                                     Applied Trainer</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/users">
+                                <NavLink to="/dashboard/balance">
                                     <MdAccountBalanceWallet></MdAccountBalanceWallet>
                                     Balance</NavLink>
                             </li>
                         </>
                     }
                     {
-                        currentUser?.role === 'trainer' && <>
+                        currentUser?.role === 'trainerb' && <>
                             <li>
                                 <NavLink to="/dashboard/trainerHome">
                                     <FaHome></FaHome>
                                     Trainer Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/history">
+                                <NavLink to="/dashboard/manageSlot">
                                     <FaCheckToSlot />
                                     Manage Slots</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/profileSetting">
+                                <NavLink to="/dashboard/manageMember">
                                     <IoMdSettings></IoMdSettings>
                                     Manage member</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/review">
+                                <NavLink to="/dashboard/addForum">
                                     <FaForumbee />
                                     Add new Forum</NavLink>
                             </li>
@@ -86,14 +83,14 @@ const Dashboard = () => {
                         </>
                     }
                     {
-                        currentUser?.role === 'user' && <>
+                        currentUser?.role === 'trainer' && <>
                             <li>
                                 <NavLink to="/dashboard/userHome">
                                     <FaHome></FaHome>
                                     User Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/history">
+                                <NavLink to="/dashboard/activity">
                                     <LuActivity></LuActivity>
                                     Activity Log</NavLink>
                             </li>

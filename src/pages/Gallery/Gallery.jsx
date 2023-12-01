@@ -15,7 +15,6 @@ const Gallery = () => {
         const handleSubmit = (event) => {
             event.preventDefault();
             // Use the checkedItems state here or pass it to another function
-            console.log('Checked Items:', checkedItems);
             // Perform any further actions like submitting to a server
         };
 

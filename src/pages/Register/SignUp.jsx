@@ -21,15 +21,12 @@ const SignUp = () => {
 
         if (password.length < 6) {
             setSignUpError('Password should be at least 6 characters');
-            console.log(signUpError);
             return;
         } else if (!/[A-Z]/.test(password)) {
             setSignUpError('Password should have a capital letter');
-            console.log(signUpError);
             return;
         } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
             setSignUpError('Password should have a special character');
-            console.log(signUpError);
             return;
         } else {
             createUser(email, password)
@@ -37,7 +34,6 @@ const SignUp = () => {
                 .catch(error => {
                     setSignUpError(error.message.slice(10, 50))
                 })
-            console.log(signUpError);
         }
 
 
@@ -47,10 +43,10 @@ const SignUp = () => {
         if (googleSignIn) {
             googleSignIn()
                 .then((result) => {
-                    console.log(result.user);
+                    
                 })
                 .catch((error) => {
-                    console.log(error.message);
+                    
 
                 });
         }

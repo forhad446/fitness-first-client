@@ -1,7 +1,37 @@
+import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const AddClass = () => {
     const handleAddClass = (event) => {
         event.preventDefault();
+        const form = event.target;
+        const title = form.title.value;
+        const short_description = form.short_description.value;
+        const day = form.day.value;
+
+        const data = { title, short_description, day }
+        
+
+        const MySwal = withReactContent(Swal)
+        const showSwalWithLink = () => {
+            MySwal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Class Added Successfully done',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+
+        if (title && short_description && day) {
+            axios.post('https://fitness-first-server.vercel.app/class', data)
+                .then(res => {
+                    showSwalWithLink()
+                    // form.reset()
+                })
+                .catch(error => {})
+        }
     }
     return (
         <div>
@@ -23,12 +53,28 @@ const AddClass = () => {
                             <div className="w-full space-y-6">
                                 <div className="w-full">
                                     <div className=" relative ">
-                                        <input type="text" className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="hh " name="fullName" required />
+                                        <label For="title">Title</label>
+                                        <input type="text" className=" rounded-lg  flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Title " name="title" required />
                                     </div>
                                 </div>
                                 <div className="w-full">
                                     <div className=" relative ">
-                                        <input type="text" className=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="jani nahh" name="password" required />
+                                        <label For="short">Short Description</label>
+                                        <textarea type="text" className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Short Description" name="short_description" required />
+                                    </div>
+                                </div>
+                                <div className="w-full">
+                                    <div className=" relative ">
+                                        <label For="short">Select Day</label>
+                                        <select name="day" id="" className=" rounded-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                            <option value="Saturday">Saturday</option>
+                                            <option value="Sunday">Sunday</option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div>

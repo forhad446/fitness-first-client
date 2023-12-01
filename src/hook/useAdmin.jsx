@@ -7,13 +7,13 @@ const useAdmin = () => {
     const [admin, setAdmin] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://fitness-first-server.vercel.app/users')
             .then(res => res.json())
             .then(data => {
                 const dbAdmin = data.filter(data => data.role === 'admin')
                 setAdmin(dbAdmin)
             })
-            .catch(error => console.log(error.message))
+            .catch(error => {})
     }, [])
 
     if (loader) {

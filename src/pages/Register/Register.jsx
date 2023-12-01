@@ -44,9 +44,9 @@ const Register = () => {
 
         createUser(email, password)
             .then(() => {
-                axios.post('http://localhost:5000/users', user)
-                    .then(res => console.log('res done'))
-                    .catch(error => console.log(error.message))
+                axios.post('https://fitness-first-server.vercel.app/users', user)
+                    .then(res => {})
+                    .catch(error => {})
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -67,13 +67,13 @@ const Register = () => {
                     const isExit = dbUsers.filter(item => item.email === email);
 
                     if (isExit.length === 0) {
-                        axios.post('http://localhost:5000/users', user)
-                            .then(res => console.log('res done'))
-                            .catch(error => console.log(error.message))
+                        axios.post('https://fitness-first-server.vercel.app/users', user)
+                            .then(res => {})
+                            .catch(error => {})
                     }
                 })
                 .catch((error) => {
-                    console.log(error.message);
+                    
 
                 });
         }

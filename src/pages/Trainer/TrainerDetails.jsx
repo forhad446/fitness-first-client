@@ -8,11 +8,11 @@ const TrainerDetails = () => {
     const [trainers, setTrainers] = useState([])
     const { id } = useParams()
     const trainer = useTrainer();
-    
+
     const isExit = trainer.find(item => item._id === id)
-    console.log(isExit);
+    
     useEffect(() => {
-        fetch('http://localhost:5000/trainers')
+        fetch('https://fitness-first-server.vercel.app/trainers')
             .then(res => res.json())
             .then(data => setTrainers(data))
     }, [id])
@@ -43,57 +43,21 @@ const TrainerDetails = () => {
                             </div>
                             <div>
                                 <p className="mb-2 font-bold tracking-wide">
-                                    6 slot available
+                                    {isExit?.selectedSlots.length} slot available
                                 </p>
                                 <ul className="space-y-2">
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            7:00-9:00 Monday/Wednesday
-                                        </p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            10:00-12:00 Monday/Wednesday
-                                        </p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            12:30-14:00 Friday/Saturday
-                                        </p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            7:00-9:00 Monday/Wednesday
-                                        </p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            7:00-9:00 Monday/Wednesday
-                                        </p>
-                                    </li>
-                                    <li className="flex items-center">
-                                        <div className="mr-2">
-                                            <IoCheckmarkCircleOutline />
-                                        </div>
-                                        <p className="font-medium text-gray-800">
-                                            7:00-9:00 Monday/Wednesday
-                                        </p>
-                                    </li>
+                                    {
+                                        isExit?.selectedSlots &&
+                                        isExit?.selectedSlots.map((data, idx) => <li key={idx} className="flex items-center">
+                                            <div className="mr-2">
+                                                <IoCheckmarkCircleOutline />
+                                            </div>
+                                            <p className="font-medium text-gray-800">
+                                                {data} {isExit?.weekendTime}
+                                            </p>
+                                        </li>)
+                                    }
+
                                 </ul>
                             </div>
                         </div>

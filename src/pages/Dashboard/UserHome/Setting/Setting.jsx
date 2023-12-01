@@ -9,7 +9,6 @@ const Setting = () => {
     const { user } = useAuth()
     const allDbUser = useDBAllUser();
     const currentUser = allDbUser.find(item => item.email === user?.email);
-    console.log(currentUser);
 
     const MySwal = withReactContent(Swal)
     const showSwalWithLink = () => {
@@ -30,7 +29,7 @@ const Setting = () => {
 
         const data = { fullName, password }
         if (data) {
-            axios.put(`http://localhost:5000/users/${currentUser?._id}`, data)
+            axios.put(`https://fitness-first-server.vercel.app/users/${currentUser?._id}`, data)
                 .then(res => {
                     showSwalWithLink()
                     form.reset()

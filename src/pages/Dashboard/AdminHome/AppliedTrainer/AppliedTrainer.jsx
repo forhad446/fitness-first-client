@@ -13,18 +13,15 @@ const AppliedTrainer = () => {
     const handleModalData = (id) => {
         const selectedId = reqTrainers.find(item => item._id === id);
         setSelected(selectedId);
-        console.log(selected);
-        console.log(selected.selectedSlots);
 
     }
 
     // handleConfirmTrainer
     const handleConfirmTrainer = (id, email) => {
-        axios.put(`http://localhost:5000/trainers/${id}`)
-        axios.put(`http://localhost:5000/dbUsers/${email}`)
-        console.log('after clicking confirm',email);
+        axios.put(`https://fitness-first-server.vercel.app/trainers/${id}`)
+        axios.put(`https://fitness-first-server.vercel.app/dbUsers/${email}`)
     }
-    
+
 
     return (
         <div>
@@ -122,9 +119,9 @@ const AppliedTrainer = () => {
                                         <form method="dialog">
                                             <div className="flex gap-5">
                                                 <Link to=''>
-                                                    <button 
-                                                    onClick={() => handleConfirmTrainer(selected && selected?._id, selected?.email)} 
-                                                    className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
+                                                    <button
+                                                        onClick={() => handleConfirmTrainer(selected && selected?._id, selected?.email)}
+                                                        className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
                                                         Confirmation
                                                     </button>
                                                 </Link>
