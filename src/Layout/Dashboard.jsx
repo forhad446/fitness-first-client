@@ -71,7 +71,7 @@ const Dashboard = () => {
                                         Activity Log</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/dashboard/cart">
+                                    <NavLink to="/dashboard/profileSetting">
                                         <IoMdSettings></IoMdSettings>
                                         Profile Settings</NavLink>
                                 </li>

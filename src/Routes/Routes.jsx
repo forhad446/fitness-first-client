@@ -19,6 +19,7 @@ import AllSubscribers from "../pages/Dashboard/AllSubscribers/AllSubscribers";
 import AllTrainers from "../pages/Dashboard/AllTrainers/AllTrainers";
 import AppliedTrainer from "../pages/Dashboard/AdminHome/AppliedTrainer/AppliedTrainer";
 import AdminRoute from "./AdminRoute";
+import Setting from "../pages/Dashboard/UserHome/Setting/Setting";
 
 const Routes = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const Routes = createBrowserRouter([
       {
         path: 'userHome',
         element: <UserHome />,
+      },
+      {
+        path: 'ProfileSetting',
+        element: <Setting></Setting>
       },
 
       // admin only routes
