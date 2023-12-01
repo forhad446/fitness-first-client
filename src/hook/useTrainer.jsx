@@ -9,7 +9,7 @@ const useTrainer = () => {
         .then(data => setTrainer(data))
     }, [])
 
-    return [trainer]
+    return trainer;
 };
 
 export default useTrainer;

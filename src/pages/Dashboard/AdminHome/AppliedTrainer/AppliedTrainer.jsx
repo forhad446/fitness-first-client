@@ -1,9 +1,10 @@
-import useDBAllUser from "../../../../hook/useDBAllUser";
+import useTrainer from "../../../../hook/useTrainer";
 
 ;
 const AppliedTrainer = () => {
-    // all dbUsers 
-    const dbUsers = useDBAllUser();
+    
+    const reqTrainers = useTrainer();
+    console.log(reqTrainers);
 
     return (
         <div>
@@ -30,7 +31,7 @@ const AppliedTrainer = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        dbUsers.map(item => <tr>
+                                        reqTrainers.map(item => <tr>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0">

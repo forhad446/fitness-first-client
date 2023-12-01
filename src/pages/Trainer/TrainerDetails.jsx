@@ -7,7 +7,7 @@ import { IoCheckmarkCircleOutline } from "react-icons/io5";
 const TrainerDetails = () => {
     const [trainers, setTrainers] = useState([])
     const { id } = useParams()
-    const [trainer] = useTrainer();
+    const trainer = useTrainer();
     
     const isExit = trainer.find(item => item._id === id)
     console.log(isExit);

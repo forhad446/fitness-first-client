@@ -6,14 +6,24 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useDBAllUser from "../hook/useDBAllUser";
+import useAuth from "../hook/useAuth";
 
 
 const Dashboard = () => {
-    // const [cart] = useCart();
+    const { user } = useAuth();
+    const dbUser = useDBAllUser()
+    const currentUser = dbUser.find(item => item.email === user.email)
 
-    // TODO: get isAdmin value from the database
-    // const [isAdmin] = useAdmin();
-    const [isAdmin, setIsAdmin] = useState('null')
+    const [isAdmin, setIsAdmin] = useState(currentUser?.role);
+    const role = currentUser?.role;
+    
+    
+    
+    console.log(role);
+
+    
+    console.log(isAdmin);
 
     return (
         <div className="flex">
@@ -21,7 +31,7 @@ const Dashboard = () => {
             <div className="w-64 min-h-screen bg-orange-400">
                 <ul className="menu p-4">
                     {
-                        isAdmin ? <>
+                        currentUser?.role === 'admin' ? <>
                             <li>
                                 <NavLink to="/dashboard/adminHome">
                                     <FaHome></FaHome>

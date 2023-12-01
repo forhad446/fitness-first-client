@@ -5,7 +5,8 @@ import SocialLink from "../Shared/SocialLink";
 import { Link } from "react-router-dom";
 
 const Trainer = () => {
-    const [trainer] = useTrainer();
+    const trainer = useTrainer();
+    console.log(trainer);
     return (
         <div className="mb-10">
             <Helmet>

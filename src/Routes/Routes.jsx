@@ -17,6 +17,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllSubscribers from "../pages/Dashboard/AllSubscribers/AllSubscribers";
 import AllTrainers from "../pages/Dashboard/AllTrainers/AllTrainers";
+import AppliedTrainer from "../pages/Dashboard/AdminHome/AppliedTrainer/AppliedTrainer";
 
 const Routes = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const Routes = createBrowserRouter([
       {
         path: '/dashboard/allTrainers',
         element: <AllTrainers></AllTrainers>
+      },
+      {
+        path: '/dashboard/appliedTrainer',
+        element: <AppliedTrainer></AppliedTrainer>
       }
     ]
   }
