@@ -7,7 +7,7 @@ import ClassList from '../ClassList/ClassList';
 import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
-    const [classList] = useClassList()
+    const classList = useClassList()
 
     const Saturday = classList.filter(item => item.day === 'Saturday')
     const Sunday = classList.filter(item => item.day === 'Sunday')
@@ -41,7 +41,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Saturday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -51,7 +51,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Sunday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -61,7 +61,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Monday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -71,7 +71,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Tuesday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -81,7 +81,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Wednesday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -91,7 +91,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Thursday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -101,7 +101,7 @@ const Classes = () => {
                         <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                             {
                                 Friday.map(item => <ClassList
-                                    id={item.id}
+                                    id={item._id}
                                     title={item.title}
                                     description={item.short_description} />)
                             }
@@ -114,7 +114,7 @@ const Classes = () => {
                     <div className="background-radial-gradient py-20 p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
                         {
                             classList.map(item => <ClassList
-                                id={item.id}
+                                id={item._id}
                                 title={item.title}
                                 description={item.short_description} />)
                         }

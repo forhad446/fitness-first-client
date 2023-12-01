@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useClassList from "../../../hook/useClassList";
 
 const classNameDetails = () => {
 
     const { id } = useParams()
-    const [classList, setClassList] = useState([])
-    const isExit = classList.find(item => item.id === parseInt(id))
+    const classList = useClassList()
+    
+    // const [classList, setClassList] = useState(allClass)
+    // console.log(classList);
+    const isExit = classList.find(item => item._id === id)
+
+    
 
     useEffect(() => {
-        fetch('./../../../../public/ClassList.json')
-            .then(res => res.json())
-            .then(data => setClassList(data))
+        // fetch('./../../../../public/ClassList.json')
+        //     .then(res => res.json())
+        //     .then(data => setClassList(data))
+        
     }, [id])
     return (
         <div className="my-10">

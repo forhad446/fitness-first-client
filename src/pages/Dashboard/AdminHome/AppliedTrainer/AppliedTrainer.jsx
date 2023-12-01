@@ -21,8 +21,10 @@ const AppliedTrainer = () => {
     // handleConfirmTrainer
     const handleConfirmTrainer = (id, email) => {
         axios.put(`http://localhost:5000/trainers/${id}`)
-        axios.put(`http://localhost:5000/users/${email}`)
+        axios.put(`http://localhost:5000/dbUsers/${email}`)
+        console.log('after clicking confirm',email);
     }
+    
 
     return (
         <div>

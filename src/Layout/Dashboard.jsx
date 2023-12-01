@@ -3,6 +3,7 @@ import { FaAd, FaBook, FaChalkboardTeacher, FaHome, FaList, FaSearch, FaShopping
 import { LuActivity } from "react-icons/lu";
 import { IoMdSettings } from "react-icons/io";
 import { SiGoogleclassroom } from "react-icons/si";
+import { FaCheckToSlot, FaForumbee } from "react-icons/fa6";
 import { VscGitPullRequestNewChanges } from "react-icons/vsc";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
@@ -17,12 +18,8 @@ const Dashboard = () => {
 
     const [isAdmin, setIsAdmin] = useState(currentUser?.role);
     const role = currentUser?.role;
-    
-    
-    
-    console.log(role);
 
-    
+    console.log(currentUser);
     console.log(isAdmin);
 
     return (
@@ -31,7 +28,7 @@ const Dashboard = () => {
             <div className="w-64 min-h-screen bg-orange-400">
                 <ul className="menu p-4">
                     {
-                        currentUser?.role === 'admin' ? <>
+                        currentUser?.role === 'admin' && <>
                             <li>
                                 <NavLink to="/dashboard/adminHome">
                                     <FaHome></FaHome>
@@ -58,29 +55,59 @@ const Dashboard = () => {
                                     Balance</NavLink>
                             </li>
                         </>
-                            :
-                            <>
-                                <li>
-                                    <NavLink to="/dashboard/userHome">
-                                        <FaHome></FaHome>
-                                        User Home</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/history">
-                                        <LuActivity></LuActivity>
-                                        Activity Log</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/profileSetting">
-                                        <IoMdSettings></IoMdSettings>
-                                        Profile Settings</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/dashboard/review">
-                                        <SiGoogleclassroom></SiGoogleclassroom>
-                                        Recommended Classes Page</NavLink>
-                                </li>
-                            </>
+                    }
+                    {
+                        currentUser?.role === 'trainer' && <>
+                            <li>
+                                <NavLink to="/dashboard/trainerHome">
+                                    <FaHome></FaHome>
+                                    Trainer Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/history">
+                                    <FaCheckToSlot />
+                                    Manage Slots</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/profileSetting">
+                                    <IoMdSettings></IoMdSettings>
+                                    Manage member</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/review">
+                                    <FaForumbee />
+                                    Add new Forum</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addClass">
+                                    <SiGoogleclassroom></SiGoogleclassroom>
+                                    Add new Class</NavLink>
+                            </li>
+                        </>
+                    }
+                    {
+                        currentUser?.role === 'user' && <>
+                            <li>
+                                <NavLink to="/dashboard/userHome">
+                                    <FaHome></FaHome>
+                                    User Home</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/history">
+                                    <LuActivity></LuActivity>
+                                    Activity Log</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/profileSetting">
+                                    <IoMdSettings></IoMdSettings>
+                                    Profile Settings</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/review">
+                                    <SiGoogleclassroom></SiGoogleclassroom>
+                                    Recommended Classes Page</NavLink>
+                            </li>
+                        </>
                     }
                     {/* shared nav links */}
                     <div className="divider"></div>

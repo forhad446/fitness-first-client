@@ -20,6 +20,8 @@ import AllTrainers from "../pages/Dashboard/AllTrainers/AllTrainers";
 import AppliedTrainer from "../pages/Dashboard/AdminHome/AppliedTrainer/AppliedTrainer";
 import AdminRoute from "./AdminRoute";
 import Setting from "../pages/Dashboard/UserHome/Setting/Setting";
+import TrainerHome from "../pages/Dashboard/TrainerHome/TrainerHome/TrainerHome";
+import AddClass from "../pages/Dashboard/TrainerHome/AddClass/AddClass";
 
 const Routes = createBrowserRouter([
   {
@@ -81,6 +83,16 @@ const Routes = createBrowserRouter([
       {
         path: 'ProfileSetting',
         element: <Setting></Setting>
+      },
+
+      // trainer only routes
+      {
+        path: 'trainerHome',
+        element: <TrainerHome></TrainerHome>
+      },
+      {
+        path: 'addClass',
+        element: <AddClass></AddClass>
       },
 
       // admin only routes

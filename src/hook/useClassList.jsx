@@ -4,11 +4,11 @@ const useClassList = () => {
     const [classList, setClassList] = useState([])
 
     useEffect(() => {
-        fetch('./ClassList.json')
+        fetch('http://localhost:5000/class')
             .then(res => res.json())
             .then(data => setClassList(data))
     }, [])
-    return [classList];
+    return classList;
 };
 
 export default useClassList;
