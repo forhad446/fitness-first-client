@@ -38,7 +38,7 @@ const Dashboard = () => {
                                     All Trainers</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/bookings">
+                                <NavLink to="/dashboard/appliedTrainer">
                                     <VscGitPullRequestNewChanges></VscGitPullRequestNewChanges>
                                     Applied Trainer</NavLink>
                             </li>

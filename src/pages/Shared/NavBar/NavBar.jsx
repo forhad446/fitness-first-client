@@ -6,13 +6,16 @@ import { AuthContext } from "../../../authentication/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../config/firebase.config";
 import { IoMenu, IoClose } from "react-icons/io5";
+import useDBAllUser from "../../../hook/useDBAllUser";
 
 const NavBar = () => {
 
     const { user, setLoader } = useContext(AuthContext);
     const [close, setClose] = useState(true)
 
-    console.log(user);
+    const DBAllUser = useDBAllUser()
+    const currentUser = DBAllUser.find(item => item.email === user.email)
+    
     const navItem = <>
         <li>
             <NavLink to='/' className={({ isActive, isPending }) =>
@@ -84,7 +87,7 @@ const NavBar = () => {
                     <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse relative">
                         <button type="button" className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 " id="user-menu-button">
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL ? user?.photoURL : profile : profile} alt="user photo" />
+                            <img className="w-8 h-8 rounded-full" src={user?.email ? user?.photoURL ? user?.photoURL : currentUser?.photoUrl : profile} alt="user photo" />
                         </button>
                         <button onClick={() => setClose(!close)} className="md:hidden">
                             {
