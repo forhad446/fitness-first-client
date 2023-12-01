@@ -54,7 +54,7 @@ const Dashboard = () => {
                         </>
                     }
                     {
-                        currentUser?.role === 'trainerb' && <>
+                        currentUser?.role === 'trainer' && <>
                             <li>
                                 <NavLink to="/dashboard/trainerHome">
                                     <FaHome></FaHome>
@@ -83,7 +83,7 @@ const Dashboard = () => {
                         </>
                     }
                     {
-                        currentUser?.role === 'trainer' && <>
+                        currentUser?.role === 'user' && <>
                             <li>
                                 <NavLink to="/dashboard/userHome">
                                     <FaHome></FaHome>

@@ -56,7 +56,7 @@ const Routes = createBrowserRouter([
       },
       {
         path: '/classes',
-        element: <PrivateRoute><Classes /></PrivateRoute>
+        element: <Classes />
       },
       {
         path: '/classes/classDetails/:id',
