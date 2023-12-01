@@ -18,6 +18,7 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllSubscribers from "../pages/Dashboard/AllSubscribers/AllSubscribers";
 import AllTrainers from "../pages/Dashboard/AllTrainers/AllTrainers";
 import AppliedTrainer from "../pages/Dashboard/AdminHome/AppliedTrainer/AppliedTrainer";
+import AdminRoute from "./AdminRoute";
 
 const Routes = createBrowserRouter([
   {
@@ -80,19 +81,19 @@ const Routes = createBrowserRouter([
       // admin only routes
       {
         path: 'adminHome',
-        element: <AdminHome></AdminHome>
+        element: <AdminRoute><AdminHome /></AdminRoute>
       },
       {
         path: '/dashboard/allSubscribers',
-        element: <AllSubscribers></AllSubscribers>
+        element: <AdminRoute><AllSubscribers /></AdminRoute>
       },
       {
         path: '/dashboard/allTrainers',
-        element: <AllTrainers></AllTrainers>
+        element: <AdminRoute><AllTrainers /></AdminRoute>
       },
       {
         path: '/dashboard/appliedTrainer',
-        element: <AppliedTrainer></AppliedTrainer>
+        element: <AdminRoute><AppliedTrainer /></AdminRoute>
       }
     ]
   }

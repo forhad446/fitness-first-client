@@ -15,8 +15,8 @@ const Blog = () => {
             </div>
             <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
                 {
-                    blog.map(item =>
-                        <div className="overflow-hidden hover:scale-[1.05] transition duration-300 bg-white rounded ">
+                    blog.map((item, idx) =>
+                        <div key={idx} className="overflow-hidden hover:scale-[1.05] transition duration-300 bg-white rounded ">
                             <div>
                                 <img
                                     src={item.img}

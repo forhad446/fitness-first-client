@@ -30,7 +30,7 @@ const AllTrainers = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        trainers.map(item => <tr>
+                                        trainers.map(item => <tr key={item._id}>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0">
@@ -60,7 +60,7 @@ const AllTrainers = () => {
                                                     <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
                                                     </span>
                                                     <span className="relative">
-                                                        active
+                                                        pay
                                                     </span>
                                                 </span>
                                             </td>

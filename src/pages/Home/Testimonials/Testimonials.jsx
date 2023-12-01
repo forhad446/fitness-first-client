@@ -33,8 +33,8 @@ const Testimonials = () => {
                 className="mySwiper"
             >
                 {
-                    review.map(item =>
-                        <SwiperSlide>
+                    review.map((item, idx) =>
+                        <SwiperSlide key={idx}>
                             <TestimonialCard item={item}></TestimonialCard>
                         </SwiperSlide>
                     )
