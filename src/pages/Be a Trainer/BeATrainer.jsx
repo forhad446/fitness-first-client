@@ -5,7 +5,8 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import useTrainer from "../../hook/useTrainer";
+import { Navigate } from "react-router-dom";
 
 
 const BeATrainer = () => {
@@ -33,6 +34,10 @@ const BeATrainer = () => {
         Thursday: false,
         Friday: false,
     });
+
+    const trainer = useTrainer()
+    const isExit = trainer.filter(item => item.email === user?.email)
+
 
     // toast message
     const notify = () => toast(error);
@@ -91,12 +96,17 @@ const BeATrainer = () => {
         }
 
         if (data) {
-            axios.post('http://localhost:5000/trainers', data)
-                .then(res => {
-                    showSwalWithLink()
-                    form.reset()
-                })
-                .catch(error => console.log(error.message))
+            if (isExit.length === 0) {
+                axios.post('http://localhost:5000/trainers', data)
+                    .then(res => {
+                        showSwalWithLink()
+                        form.reset()
+                        Navigate('/trainer')
+                    })
+                    .catch(error => console.log(error.message))
+            } else {
+                setError('Already Applied For Trainer')
+            }
         }
     }
 
@@ -381,11 +391,24 @@ const BeATrainer = () => {
                                 </label>
                             </div>
                         </div>
-                        <div className="flex w-full my-4">
-                            <button type="submit" className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600 w-full">
-                                Applied
-                            </button>
-                        </div>
+                        {
+                            isExit.length === 0 ?
+                                <>
+                                    <div className="flex w-full my-4">
+                                        <button type="submit" className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600 w-full">
+                                            Applied
+                                        </button>
+                                    </div>
+                                </> :
+                                <>
+                                    <div className="flex w-full my-4">
+                                        <p className="px-4 py-2 text-gray-100 bg-[#339900] rounded  hover:bg-blue-600 w-full text-center">
+                                            Already Applied For Trainer
+                                        </p>
+                                    </div>
+                                </>
+                        }
+
                         <ToastContainer
                             position="top-center"
                             autoClose={5000}

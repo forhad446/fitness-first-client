@@ -1,10 +1,20 @@
+import { useState } from "react";
 import useTrainer from "../../../../hook/useTrainer";
+import { Link } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
-;
 const AppliedTrainer = () => {
-    
+
     const reqTrainers = useTrainer();
-    console.log(reqTrainers);
+    const [selected, setSelected] = useState(null)
+
+    const handleModalData = (id) => {
+        const selectedId = reqTrainers.find(item => item._id === id);
+        setSelected(selectedId);
+        console.log(selected);
+        console.log(selected.selectedSlots);
+
+    }
 
     return (
         <div>
@@ -22,10 +32,7 @@ const AppliedTrainer = () => {
                                             Email
                                         </th>
                                         <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                            Role
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 text-sm font-normal text-left text-gray-800 uppercase bg-white border-b border-gray-200">
-                                            status
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
@@ -36,7 +43,7 @@ const AppliedTrainer = () => {
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0">
                                                         <a href="#" className="relative block">
-                                                            <img alt="profil" src={item?.photoUrl} className="mx-auto object-cover rounded-full h-10 w-10 " />
+                                                            <img alt="profile" src={item?.img} className="mx-auto object-cover rounded-full h-10 w-10 " />
                                                         </a>
                                                     </div>
                                                     <div className="ml-3">
@@ -52,16 +59,16 @@ const AppliedTrainer = () => {
                                                 </p>
                                             </td>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    {item?.role}
-                                                </p>
-                                            </td>
-                                            <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
-                                                <span className="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
+                                                <span
+                                                    onClick={() => {
+                                                        document.getElementById('my_modal_1').showModal()
+                                                        handleModalData(item._id)
+                                                    }}
+                                                    className="cursor-pointer relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
                                                     <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
                                                     </span>
-                                                    <span className="relative">
-                                                        active
+                                                    <span className="relative ">
+                                                        Make Admin
                                                     </span>
                                                 </span>
                                             </td>
@@ -70,6 +77,61 @@ const AppliedTrainer = () => {
 
                                 </tbody>
                             </table>
+                            <dialog id="my_modal_1" className="modal">
+                                <div className="modal-box">
+                                    <h3 className="font-extrabold text-lg">
+                                        {selected && selected?.fullName}
+                                    </h3>
+                                    <p className="py-4">
+                                        Email :
+                                        {selected && selected?.email}
+                                    </p>
+                                    <h3 className="font-medium text-md">
+                                        Skill :
+                                        {selected &&
+                                            selected.selectedSkills.map(data => <span className="mr-2 m-1">{data},</span>)
+                                        }
+
+                                    </h3>
+                                    <h3 className="font-medium text-md">
+                                        weekendTime :
+                                        {selected &&
+                                            selected.weekendTime.map(data => <span className="mr-2 m-1">{data},</span>)
+                                        }
+
+                                    </h3>
+                                    <h3 className="font-medium text-md">
+                                        Time Slots :
+                                        {selected &&
+                                            selected.selectedSlots.map(data => <span className="mr-2 m-1">{data},</span>)
+                                        }
+
+                                    </h3>
+
+                                    <div className="modal-action">
+                                        <form method="dialog">
+                                            <div className="flex gap-5">
+                                                <Link to=''>
+                                                    <button className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
+                                                        Confirmation
+                                                    </button>
+                                                </Link>
+                                                <Link to=''>
+                                                    <button className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
+                                                        Reject
+                                                    </button>
+                                                </Link>
+                                            </div>
+
+                                            <div>
+                                                <button className="btn absolute top-0 right-0">
+                                                    <IoMdClose />
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
                         </div>
                     </div>
                 </div>
