@@ -2,10 +2,12 @@ import { useState } from "react";
 import useTrainer from "../../../../hook/useTrainer";
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
+import axios from "axios";
 
 const AppliedTrainer = () => {
 
     const reqTrainers = useTrainer();
+    const applyTrainer = reqTrainers.filter(applied => applied.status === 'pending');
     const [selected, setSelected] = useState(null)
 
     const handleModalData = (id) => {
@@ -14,6 +16,12 @@ const AppliedTrainer = () => {
         console.log(selected);
         console.log(selected.selectedSlots);
 
+    }
+
+    // handleConfirmTrainer
+    const handleConfirmTrainer = (id, email) => {
+        axios.put(`http://localhost:5000/trainers/${id}`)
+        axios.put(`http://localhost:5000/users/${email}`)
     }
 
     return (
@@ -38,7 +46,7 @@ const AppliedTrainer = () => {
                                 </thead>
                                 <tbody>
                                     {
-                                        reqTrainers.map(item => <tr>
+                                        applyTrainer.map(item => <tr>
                                             <td className="px-5 py-5 text-sm bg-white border-b border-gray-200">
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0">
@@ -68,7 +76,7 @@ const AppliedTrainer = () => {
                                                     <span aria-hidden="true" className="absolute inset-0 bg-green-200 rounded-full opacity-50">
                                                     </span>
                                                     <span className="relative ">
-                                                        Make Admin
+                                                        Make Trainer
                                                     </span>
                                                 </span>
                                             </td>
@@ -112,7 +120,9 @@ const AppliedTrainer = () => {
                                         <form method="dialog">
                                             <div className="flex gap-5">
                                                 <Link to=''>
-                                                    <button className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
+                                                    <button 
+                                                    onClick={() => handleConfirmTrainer(selected && selected?._id, selected?.email)} 
+                                                    className="px-4 py-2 text-gray-100 bg-blue-500 rounded  hover:bg-blue-600">
                                                         Confirmation
                                                     </button>
                                                 </Link>

@@ -81,7 +81,7 @@ const BeATrainer = () => {
         const weekendTime = Object.keys(checkedItems).filter(
             (key) => checkedItems[key])
 
-        const data = { fullName, email, age, img, weekendTime, selectedSlots, selectedSkills }
+        const data = { fullName, email, age, img, weekendTime, selectedSlots, selectedSkills, status : 'pending' }
 
         // clear the error state
         setError('')
